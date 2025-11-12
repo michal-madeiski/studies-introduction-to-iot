@@ -1,0 +1,23 @@
+{
+  "name": "ButtonControl",
+  "keywords": "button, control",
+  "description": "Arduino Library for IoT Laboratory",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://example.com/ButtonControl.git"
+  },
+  "authors": 
+  [
+    {
+      "name": "Michal Madeiski",
+      "email": "280475@student.pwr.edu.pl",
+      "url": "http://michal.madeiski.example.com",
+      "maintainer": true
+    }
+  ],
+  "version": "1.0.0",
+  "homepage": "hhttps://example.com/ButtonControl",
+  "frameworks": "arduino",
+  "platforms": "*"
+}
