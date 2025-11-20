@@ -9,5 +9,6 @@ Each lab class dir contains an implementation of tasks about the given topic.
 * Lab04 - arduino: serial communication and adc
 * Lab05 - arduino: interrupts and encoder
 * Lab06 - arduino: temperature sensors and libraries
+* Lab07 - introduction to raspberry pi
 
 _Lab[number] is a one-week homework assignment._

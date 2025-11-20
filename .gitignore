@@ -1,3 +1,4 @@
 *.pdf
 *.zip
+__pycache__/
 Arduino_RPi
