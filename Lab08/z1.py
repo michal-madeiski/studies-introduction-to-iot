@@ -13,7 +13,7 @@ def green_button_callback(channel):
     leds_pwm[current_led].ChangeDutyCycle(0)
     current_led = (current_led + 1) % 4
     leds_pwm[current_led].ChangeDutyCycle(current_brightness[current_led])
-    print(f"Wybrano diodę: LED{current_led + 1}, Jasność: {current_brightness[current_led]}%")
+    print(f"Diod: LED{current_led + 1}, brightness: {current_brightness[current_led]}%")
 
 def setupPWM():
     leds = [led1, led2, led3, led4]
@@ -38,14 +38,13 @@ def encoder_callback(channel):
             current_brightness[current_led] = max(0, current_brightness[current_led] - 5)
     
     leds_pwm[current_led].ChangeDutyCycle(current_brightness[current_led])
-    print(f"Aktualna dioda {current_led + 1}, aktualna intensywność {current_brightness[current_led]}%")
+    print(f"Current diod: LED{current_led + 1}, current brightness: {current_brightness[current_led]}%")
 
 def cleanup():
-    print("\nCzyszczenie zasobów...")
     for pwm in leds_pwm:
         pwm.stop()
     GPIO.cleanup()
-    print("Zasoby wyczyszczone.")
+    print("\nProgram finished")
 
 def main():
     try:
@@ -55,14 +54,14 @@ def main():
         GPIO.add_event_detect(encoderLeft, GPIO.BOTH, callback=encoder_callback, bouncetime=50)
         GPIO.add_event_detect(encoderRight, GPIO.BOTH, callback=encoder_callback, bouncetime=50)
         
-        print("Program uruchomiony. Naciśnij Ctrl+C aby zakończyć.")
-        print(f"Aktualna dioda: LED{current_led + 1}")
+        print("Program started, press Ctrl+C to finish")
+        print(f"Current diod: LED{current_led + 1}")
         
         while True:
             time.sleep(0.1)
             
     except KeyboardInterrupt:
-        print("\nPrzerwano przez użytkownika (Ctrl+C)")
+        print("\nInterrupted by the user (Ctrl+C)")
     finally:
         cleanup()
 

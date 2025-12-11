@@ -9,7 +9,6 @@ from threading import Timer
 from gpiozero import Device
 from gpiozero.pins.mock import MockFactory
 Device.pin_factory = MockFactory()
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from config_mock import *
 
 red_led = led1
@@ -18,7 +17,7 @@ blue_led = led3
 red_button = buttonRed
 
 def simulate_press():
-    print("\n>>>SYMULACJA: naciskanie czerwonego przycisku")
+    print("\n>>>SIMULATION: pressing the red button")
     red_button.pin.drive_low()
     time.sleep(0.1)
     red_button.pin.drive_high()
@@ -33,4 +32,4 @@ if __name__ == "__main__":
     print("Program started")
     Timer(3, simulate_press).start()
     red_button_test()
-    print("Program finished")
+    print("\nProgram finished")

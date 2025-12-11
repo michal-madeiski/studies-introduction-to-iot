@@ -36,13 +36,13 @@ def test():
 
 if __name__ == "__main__":
     try:
-        print("\nProgram started")
+        print("\nProgram started, press Ctrl+C to finish")
         while True:
             time.sleep(0.5)
             test()
             print('\033[8A\r', end='', flush=True)
     except KeyboardInterrupt:
-        print("\nPrzerwano przez użytkownika (Ctrl+C)")
+        print("\nInterrupted by the user (Ctrl+C)")
     finally:
-        print("\nProgram finished")
         GPIO.cleanup()
+        print("\nProgram finished")
